@@ -134,6 +134,12 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                     chVTSet(&pairing_key_timer, TIME_MS2I(2000), (vtfunc_t)pairing_key_timer_cb, &host_idx);
                     bluetooth_connect_ex(host_idx, 0);
                 } else {
+                    // 10/15/2024 added to switch layers according to bluetooth host
+                    if (host_idx >= 2) {             // macOS hosts are host 2 and 3
+                        default_layer_set(1UL << 0); // Switch to macOS layout
+                    } else {
+                        default_layer_set(1UL << 2); // Switch to Windows layout
+                    }
                     host_idx = 0;
                     chVTReset(&pairing_key_timer);
                 }

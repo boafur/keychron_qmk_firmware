@@ -16,6 +16,8 @@
 
 #pragma once
 
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+
 #ifdef RGB_MATRIX_ENABLE
 /* RGB Matrix Driver Configuration */
 #    define DRIVER_COUNT 2
@@ -47,6 +49,5 @@
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 
 /* Set LED driver current */
-#    define SNLED27351_CURRENT_TUNE \
-        { 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14 }
+#    define SNLED27351_CURRENT_TUNE {0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14, 0x14}
 #endif
